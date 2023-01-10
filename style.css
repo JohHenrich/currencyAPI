@@ -1,0 +1,151 @@
+body {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    background-color: lightgrey;
+    height: 100vh;
+    width: 100%;
+}
+
+.box{
+
+    background-color: lightgrey;
+    width: 688px;
+    height: 680px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.app-box{
+    display: flex ;
+    flex-direction: column ;
+    justify-items: center ;
+    align-items: center;
+  
+}
+
+.navbar {
+    display: flex !important;
+    flex-direction: column !;
+
+    align-items: center;
+
+}
+
+
+.navbar img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 28px;
+}
+
+.headline-navbar {
+    display: flex;
+    justify-content: space-between;
+    width:630px;
+}
+
+.dropdown-menu {
+    overflow-y: scroll;
+    max-height: 40vh;
+    width: 20px;
+    min-width: 70px !important;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.inputBox {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    width: 360px;
+}
+
+.exchangeBtn {
+    display: flex !;
+    flex-direction: column !important;
+
+}
+
+.containerBox {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+
+}
+
+.width {
+    width: 360px !important;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 625px;
+    padding-bottom: 28px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 0 !important;
+}
+
+.currencybtn {
+    margin: 15px;
+}
+
+#currencyChart {
+    margin-top: 50px;
+}
+
+#changeChart {
+    margin-top: 50px;
+}
+
+.input-group {
+    flex-wrap: unset !important;
+}
+
+.d-unset {
+    display: unset !important;
+}
+
+.changeBtn {
+    display: flex !important;
+}
+
+.marginTop {
+    margin-top: 68px;
+}
+
+@media (max-width: 400px) {
+
+    .width {
+        width: 275px !important;
+    }
+
+    .inputBox {
+        width: 275px !important;
+    }
+
+    .headline-navbar {
+        width: 280px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .buttonContainer {
+
+        flex-wrap: wrap;
+
+    }
+    .mirror {
+        flex-direction: column-reverse !important;
+    }
+}
