@@ -1,0 +1,238 @@
+body {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    background-color: lightgrey;
+    height: 100vh;
+    width: 100%;
+}
+
+.box {
+    background-color: lightgrey;
+    width: 688px;
+    height: 640px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.app-box {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.navbar {
+    display: flex !important;
+    flex-direction: column !;
+    align-items: center;
+}
+
+
+.navbar img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 28px;
+}
+
+.headline-navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 630px;
+}
+
+.dropdown-menu {
+    overflow-y: scroll;
+    max-height: 40vh;
+    width: 20px;
+    min-width: 70px !important;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.inputBox {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    width: 360px;
+}
+
+.exchangeBtn {
+    display: flex !;
+    flex-direction: column !important;
+
+}
+
+.containerBox {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+}
+
+
+.chartBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 625px;
+    padding-bottom: 28px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+
+.currencybtn {
+    margin: 15px;
+}
+
+
+#currencyChart #changeChart {
+    margin-top: 50px;
+}
+
+.width {
+    width: 365px !important;
+}
+
+.widthBtn {
+    width: 365px !important;
+}
+
+.input-group {
+    flex-wrap: unset !important;
+}
+
+.d-unset {
+    display: unset !important;
+}
+
+
+.changeBtn {
+    display: flex !important;
+}
+
+
+.marginTop {
+    margin-top: 68px;
+}
+
+.inpCurve2 {
+    margin-left: 18px;
+}
+
+
+@media (min-width:430px) and (max-width:700px) {
+    .width {
+        width: 365px !important;
+    }
+
+    .box {
+        width: 428px;
+        height: 478px;
+    }
+
+    .chartBox {
+        width: 380px;
+        height: auto;
+        padding-bottom: 0;
+    }
+
+    .headline-navbar {
+        width: 388px;
+
+    }
+
+    .inputBox {
+        display: flex;
+        align-items: center !important;
+        justify-content: center;
+        width: 360px;
+    }
+
+    .h2 {
+        font-size: small !important;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .width {
+        width: 100vw !important;
+    }
+
+    .widthbtn {
+        width: 280px;
+    }
+
+    .inputBox {
+        width: 275px !important;
+    }
+
+
+    .box {
+        width: fit-content;
+        height: 100%;
+    }
+
+
+    .chartBox {
+        width: 90%;
+    }
+
+    .navbar {
+        height: 120px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .headline-navbar {
+        width: fit-content;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .buttonContainer {
+        flex-wrap: wrap;
+    }
+
+    .mirror {
+        flex-direction: column-reverse !important;
+    }
+
+    .widthBtn {
+        width: 265px !important;
+    }
+
+    .btnCurry1 {
+        margin-left: 12px !important;
+    }
+
+    .inpCurve1 {
+        margin-right: 18px;
+        margin-bottom: 18px !important;
+    }
+
+    .inpCurve2 {
+        margin-left: 18px;
+        margin-bottom: 18px !important;
+    }
+
+    .btnCurve1 {
+        margin-left: 18px;
+        margin-bottom: 18px !important;
+    }
+
+    .btnCurve2 {
+        margin-right: 18px;
+        margin-bottom: 18px !important;
+    }
+
+}

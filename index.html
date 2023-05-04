@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Währungskurve</title>
+    <link rel="icon" type="image/png" href="./img/bank-4-48.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <!---BootstrapFiles--->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <!-- Include Required Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <!-- Include Required Prerequisites -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+</head>
+
+<body class="bg-secondary" onload="init()">
+    <div class="box">
+
+        <div class="navbar">
+            <div class="headline-navbar">
+                <div class="d-flex">
+                    <button class="btn btn-dark mr-1 mb-1 mt-1" onclick="changeModeBtn()">
+                        <img src="./img/exchange_icon-256.png" alt="">
+                    </button>
+                    <button class="btn btn-dark m-1" onclick="changeModeBtn()">
+                        <img src="./img/line-256.png" alt="">
+                    </button>
+                </div>
+                <div class="text-center text-light">
+                    <h2 class="headline">Währungskurve</h2>
+                    <h2 class="headline d-none">Währungsrechner</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="changeMode app-box">
+            <div class="card bg-black text-light">
+                <div class="chartBox pt-3">
+                    <canvas id="currencyChart" ></canvas>
+                </div>
+
+                <div class="containerBox pl-2">
+                    <div class="buttonContainer">
+                        <div>
+                            <button class="btn currencybtn btn-danger dropdown-toggle" id="currencyBtn0"
+                                data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">USD</button>
+                            <ul class="dropdown-menu" aria-labelledby="currencyBtn0" id="dropdownBtn0">
+                            </ul>
+                        </div>
+                        <div>
+                            <button class="btn currencybtn btn-primary dropdown-toggle" id="currencyBtn1"
+                                data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">EUR</button>
+                            <ul class="dropdown-menu" aria-labelledby="currencyBtn1" id="dropdownBtn1">
+                            </ul>
+                        </div>
+                        <div>
+                            <button class="btn currencybtn btn-success  dropdown-toggle" id="currencyBtn2"
+                                data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">CHF</button>
+                            <ul class="dropdown-menu" aria-labelledby="currencyBtn2" id="dropdownBtn2">
+                            </ul>
+                        </div>
+                        <div>
+                            <button class="btn currencybtn btn-warning dropdown-toggle" id="currencyBtn3"
+                                data-toggle="dropdown" data-bs-toggle="dropdown" aria-expanded="false">GBP</button>
+                            <ul class="dropdown-menu" aria-labelledby="currencyBtn3" id="dropdownBtn3">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        <div class="$white d-flex mirror">
+                            <div class="input-group input-daterange widthBtn">
+                                <div class="input-group-addon bg-secondary text-light border-0 btnCurry1">Von:</div>
+                                <input onchange="changeDate()" id="startDate" type="date" class="form-control" required>
+                                <div onchange="changeDate()" class="input-group-addon bg-secondary text-light border-0">
+                                    Bis
+                                </div>
+                                <input id="endDate" type="date" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widthBtn pb-4">
+                        <div class="input-group changeBtn mt-4">
+                            <p class="form-control bg-secondary text-light border-0" id="baseInput">Wähle die
+                                Basiswährung:
+                            </p>
+                            <button class="btn btn-outline-light btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="true" id="currencyBtn4">EUR</button>
+                            <ul class="dropdown-menu dropdown-menu-end" id="dropdownBtn4">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="changeMode app-box d-none">
+
+            <div class="card bg-black text-light">
+                <div class="chartBox pt-3">
+                    <canvas id="changeChart"></canvas>
+                </div>
+                <div class="containerBox bg-black">
+
+                    <div class="width d-flex justify-content-center boader-line bg-black text-light">
+                        <div class="$white">
+
+                            <div class="input-group input-daterange marginTop">
+                                <div class="input-group-addon bg-secondary text-light border-0">Datum:</div>
+                                <input onchange="onChangeData()" id="changeDate" type="date" class="form-control"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="width d-flex mt-4 pb-4 felxdirMobile">
+
+                        <div class="input-group changeBtn">
+                            <button class="btn btn-outline-light btn-secondary dropdown-toggle btnCurve1" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false" id="currencyBtn5">EUR</button>
+                            <ul class="dropdown-menu" id="dropdownBtn5">
+                            </ul>
+                            <input onchange="calcChange()" type="number" class="form-control inpCurve1" aria-label="Base Currency"
+                                value="1" id="changeInput1">
+                        </div>
+
+                        <div class="input-group changeBtn">
+                            <input type="text" class="form-control inpCurve2" aria-label="Target Currency" id="changeInput2"
+                                disabled>
+                            <button class="btn btn-outline-light btn-secondary dropdown-toggle btnCurve2" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="true" id="currencyBtn6">USD</button>
+                            <ul class="dropdown-menu dropdown-menu-end" id="dropdownBtn6">
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
